@@ -1,0 +1,19 @@
+.footer {
+    /* border: 2px greenyellow solid; */
+    max-width: 880px;
+    margin: 67px auto 60px;
+}
+
+@media screen and (max-width: 425px) {
+    .footer {
+        width: 282px;
+        margin: 48px auto 36px;
+    }
+}
+
+
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .footer {
+        width: 80%;
+    }
+}

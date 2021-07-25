@@ -1,0 +1,21 @@
+.input__text_type_info {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 400;
+    margin: 9px 0 0;
+}
+
+@media screen and (max-width: 425px) {
+    .input__text_type_info {
+        font-size: 14px;
+        line-height: 17px;
+        margin: 10px auto 0;
+    }
+}
+
+@media screen and (min-width: 426px) and (max-width: 900px) {
+    .input__text_type_info {
+        font-size: 14px;
+        line-height: 16px;
+    }
+}

@@ -1,0 +1,11 @@
+.input__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media screen and (max-width: 425px) {
+    .input__row {
+        min-width: 240px;
+    }
+}

@@ -1,0 +1,15 @@
+.form__image {
+    /* border: 2px red solid; */
+    background-image: url(../../../images/russo.jpg);
+    width: 120px;
+    min-height: 120px;
+    background-size: cover;
+    border-radius: 60px;
+}
+
+@media screen and (max-width: 425px) {
+    .form__image {
+        margin: auto;
+    }
+}
+

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css">
+</head>
+
+<body class="page">
+    <header class="header">
+        <div class="header__logo"></div>
+    </header>
+    <main class="content">
+        <section class="form">
+            <div class="form__image"></div>
+            <div class="input">
+                <div class="input__row">
+                    <h1 class="input__text input__text_type_name">Жак-Ив&nbsp;Кусто</h1>
+                    <button type="button" class="form__edit-btn"></button> 
+                </div>
+                <p class="input__text input__text_type_info">Исследователь океана</p>
+            </div>
+            <button type="button" class="form__submit-btn"></button>
+        </section>
+        <section class="section"> 
+            <ul class="places">
+                <li class="card">
+                    <img class="card__illustration" src="././images/архыз.jpg" alt="архыз">
+                    <div class="card__container">
+                        <p class="card__title">Архыз</p>
+                        <button class="card__button"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img class="card__illustration" src="././images/красная поляна.jpg" alt="красная поляна">
+                    <div class="card__container">
+                        <p class="card__title">Красная поляна</p>
+                        <button class="card__button"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img class="card__illustration" src="././images/байкал.jpg" alt="байкал">
+                    <div class="card__container">
+                        <p class="card__title">Байкал</p>
+                        <button class="card__button"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img class="card__illustration" src="././images/русское поле.jpg" alt="русское поле">
+                    <div class="card__container">
+                        <p class="card__title">Карачаево-Черкесия</p>
+                        <button class="card__button"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img class="card__illustration" src="././images/домбай.jpg" alt="домбай">
+                    <div class="card__container">
+                        <p class="card__title">Домбай</p>
+                        <button class="card__button"></button>
+                    </div>
+                </li>
+                <li class="card">
+                    <img class="card__illustration" src="././images/Анапа.jpg" alt="анапа">
+                    <div class="card__container">
+                        <p class="card__title">Анапа</p>
+                        <button class="card__button"></button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
+    </footer> 
+    <section class="popup">
+        <div class="popup__container">
+            <button class="popup__close-btn"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <input type="text" placeholder="Имя" class="popup__text"> 
+            <input type="text" placeholder="О себе" class="popup__text">
+            <button class="popup__button">Сохранить</button>
+        </div>
+    </section>
+
+</body>
+
+</html>

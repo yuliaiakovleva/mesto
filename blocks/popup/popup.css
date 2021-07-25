@@ -1,0 +1,10 @@
+.popup {
+    /* border: blueviolet 2px solid; */
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    display: none;
+}

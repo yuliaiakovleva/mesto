@@ -1,0 +1,26 @@
+.form__edit-btn {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FFFFFF;
+    background-color: black;
+    background-image: url(../../../images/btn-1.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    /* margin-top: 37px; */
+    padding: 0;
+    margin-left: 25px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.form__edit-btn:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 425px) {
+    .form__edit-btn {
+        margin-left: 10px;
+        width: 18px;
+        height: 18px;
+    }
+}
