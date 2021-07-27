@@ -1,7 +1,7 @@
 .input {
     display: flex;
     flex-direction: column;
-    margin: 22px 239px 25px 29px;
+    margin: 22px 0 25px 29px;
     min-width: 240px;
 }
 
@@ -11,8 +11,8 @@
     }
 }
 
-@media screen and (min-width: 426px) and (max-width: 900px) {
+/* @media screen and (min-width: 426px) and (max-width: 900px) {
     .input {
         margin-right: 150px;
     }
-}
+} */

@@ -7,7 +7,7 @@
     border-radius: 60px;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 625px) {
     .form__image {
         margin: auto;
     }

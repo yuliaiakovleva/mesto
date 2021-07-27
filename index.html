@@ -19,13 +19,13 @@
             <div class="input">
                 <div class="input__row">
                     <h1 class="input__text input__text_type_name">Жак-Ив&nbsp;Кусто</h1>
-                    <button type="button" class="form__edit-btn"></button> 
+                    <button type="button" class="form__edit-btn"></button>
                 </div>
                 <p class="input__text input__text_type_info">Исследователь океана</p>
             </div>
             <button type="button" class="form__submit-btn"></button>
         </section>
-        <section class="section"> 
+        <section class="section">
             <ul class="places">
                 <li class="card">
                     <img class="card__illustration" src="././images/архыз.jpg" alt="архыз">
@@ -35,7 +35,7 @@
                     </div>
                 </li>
                 <li class="card">
-                    <img class="card__illustration" src="././images/красная поляна.jpg" alt="красная поляна">
+                    <img class="card__illustration" src="././images/красная_поляна.jpg" alt="красная_поляна">
                     <div class="card__container">
                         <p class="card__title">Красная поляна</p>
                         <button class="card__button"></button>
@@ -49,7 +49,7 @@
                     </div>
                 </li>
                 <li class="card">
-                    <img class="card__illustration" src="././images/русское поле.jpg" alt="русское поле">
+                    <img class="card__illustration" src="././images/русское_поле.jpg" alt="карачаево_черкесия">
                     <div class="card__container">
                         <p class="card__title">Карачаево-Черкесия</p>
                         <button class="card__button"></button>
@@ -74,17 +74,17 @@
     </main>
     <footer class="footer">
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
-    </footer> 
+    </footer>
     <section class="popup">
-        <div class="popup__container">
+        <form class="popup__container">
             <button class="popup__close-btn"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
-            <input type="text" placeholder="Имя" class="popup__text"> 
-            <input type="text" placeholder="О себе" class="popup__text">
-            <button class="popup__button">Сохранить</button>
-        </div>
+            <input type="text" placeholder="Имя" class="popup__text popup__text_name">
+            <input type="text" placeholder="О себе" class="popup__text popup__text_info">
+            <button class="popup__button" type="submit">Сохранить</button>
+        </form>
     </section>
-
+    <script src="./scripts/index.js"></script>
 </body>
 
 </html>
