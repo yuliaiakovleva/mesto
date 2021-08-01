@@ -1,4 +1,4 @@
-.form__image {
+.profile__image {
     /* border: 2px red solid; */
     background-image: url(../../../images/russo.jpg);
     width: 120px;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 625px) {
-    .form__image {
+    .profile__image {
         margin: auto;
     }
 }

@@ -1,7 +1,6 @@
 .card__container {
-    /* border: 2px blue solid; */
     background-color: #FFFFFF;
     display: flex;
     justify-content: space-between;
-    margin: 25px 15px 31px 21px;
+    margin: 23px 15px 27px 21px;
 }

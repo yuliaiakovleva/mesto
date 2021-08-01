@@ -1,8 +1,9 @@
-.form__submit-btn {
+.profile__submit-btn {
     padding: 0;
     width: 150px;
     height: 50px;
-    border: 1px solid #FFFFFF;
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
     background-color: black;
     background-image: url(../../../images/btn-2.svg);
     background-repeat: no-repeat;
@@ -14,21 +15,22 @@
     margin-left: inherit;
 }
 
-.form__submit-btn:hover {
+.profile__submit-btn:hover {
     opacity: 0.6;
 }
 
 
 @media screen and (max-width: 625px) {
-    .form__submit-btn {
+    .profile__submit-btn {
         margin: 0;
         width: 100%;
+        background-size: 16px 16px;
     }
 }
 
 
 @media screen and (min-width: 625px) and (max-width: 727px) {
-    .form__submit-btn {
+    .profile__submit-btn {
         width: 130px;
         height: 50px;
     }

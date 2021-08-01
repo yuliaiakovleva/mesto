@@ -1,12 +1,12 @@
 //let content = document.querySelector('.content');
-let editButton = document.querySelector('.form__edit-btn');
+let editButton = document.querySelector('.input__edit-btn');
 let popup = document.querySelector('.popup');
 let closeButton = document.querySelector('.popup__close-btn');
-let popupName = document.querySelector('.popup__text_name');
-let popupInfo = document.querySelector('.popup__text_info');
+let popupName = document.querySelector('.popup__text_type_name');
+let popupInfo = document.querySelector('.popup__text_type_info');
 let inputName = document.querySelector('.input__text_type_name');
 let inputInfo = document.querySelector('.input__text_type_info');
-let form = document.querySelector('.form');
+let form = document.querySelector('.profile');
 
 let formElement = document.querySelector('.popup__container');
 
