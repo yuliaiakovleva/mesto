@@ -14,18 +14,18 @@
     }
 }
 
-@media screen and (min-width: 626px) and (max-width: 650px) {
-    .input {
-        grid-template-columns: 190px 1fr;
-        column-gap: 10px;
-    }
-}
-
-
-
-@media screen and (max-width: 625px) {
+@media screen and (max-width: 650px) {
     .input {
         grid-template-columns: 189px 1fr;
         column-gap: 10px;
     }
 }
+
+
+
+/* @media screen and (max-width: 625px) {
+    .input {
+        grid-template-columns: 189px 1fr;
+        column-gap: 10px;
+    }
+} */
