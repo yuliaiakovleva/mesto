@@ -1,4 +1,9 @@
 .input__text {
     font-family: 'Inter', 'Arial', sans-serif;
     color: #FFFFFF;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
 }

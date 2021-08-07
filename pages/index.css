@@ -8,7 +8,6 @@
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__image/profile__image.css);
 @import url(../blocks/input/input.css);
-@import url(../blocks/input/__row/input__row.css);
 @import url(../blocks/input/__text/input__text.css);
 @import url(../blocks/input/__text/_type/input__text_type_name.css);
 @import url(../blocks/input/__text/_type/input__text_type_info.css);

@@ -6,20 +6,19 @@
     background-image: url(../../../images/btn-1.svg);
     background-repeat: no-repeat;
     background-position: center;
-    padding: 0;
-    margin-left: 25px;
     opacity: 1;
     transition: opacity 0.5s ease;
     cursor: pointer;
+    align-self: center;
 }
 
 .input__edit-btn:hover {
-    opacity: 0.6;
+        opacity: 0.6;
 }
 
-@media screen and (max-width: 425px) {
+
+@media screen and (max-width: 625px) {
     .input__edit-btn {
-        margin-left: 10px;
         width: 18px;
         height: 18px;
         background-size: 7.5px 7.5px;

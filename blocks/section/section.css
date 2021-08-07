@@ -8,3 +8,10 @@
         width: 80%;
     }
 }
+
+@media screen and (min-width: 426px) and (max-width: 727px) {
+    .section {
+        display: flex;
+        justify-content: center;
+    }
+}

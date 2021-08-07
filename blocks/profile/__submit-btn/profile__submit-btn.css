@@ -29,9 +29,9 @@
 }
 
 
-@media screen and (min-width: 625px) and (max-width: 727px) {
+@media screen and (min-width: 626px) and (max-width: 900px) {
     .profile__submit-btn {
-        width: 130px;
+        width: 15%;
         height: 50px;
     }
 }
