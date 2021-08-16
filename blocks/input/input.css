@@ -20,12 +20,3 @@
         column-gap: 10px;
     }
 }
-
-
-
-/* @media screen and (max-width: 625px) {
-    .input {
-        grid-template-columns: 189px 1fr;
-        column-gap: 10px;
-    }
-} */
