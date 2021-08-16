@@ -139,16 +139,9 @@ function popupCardSubmitHandler (evt) {
 popupCardElement.addEventListener('submit', popupCardSubmitHandler); 
 
 
-
 // // открытие картинок
-// const openImageButton = document.querySelector('.card__button-image');
+
 const closeImageButton = document.querySelector('.popup-image__close-btn');
-// const popupImage = document.querySelector('.popup-image');
-
-// function openImage (title, link) {
-//   popupImage.classList.add('popup-image_opened');
-// };
-
 
 function closeImage () {
   document.querySelector('.popup-image').classList.remove('popup-image_opened');
