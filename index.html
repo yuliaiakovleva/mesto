@@ -32,7 +32,7 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
     </footer>
-    <section class="popup">
+    <section class="popup" id="popup-profile">
         <form class="popup__container" name="popup">
             <button class="popup__close-btn" type="reset"></button>
             <h2 class="popup__title">Редактировать профиль</h2>
@@ -51,14 +51,14 @@
                 id="popup-card__text_type_link">
             <button class="popup__button" type="submit">Создать</button>
         </form>
+        
     </section>
-
-    <section class="popup-image" id="popup-image">
-        <div class="popup-image__container">
-            <button class="popup__close-btn popup-image__close-btn" type="submit"></button>
-            <img class="popup-image__item"
+    <section class="popup" id="popup-image">
+        <div class="popup__image-container">
+            <button class="popup__close-btn popup__close-btn_image" type="submit"></button>
+            <img class="popup__image-item"
                 src="" alt="">
-            <p class="popup-image__name"></p>
+            <p class="popup__image-name"></p>
         </div>
     </section>
 
