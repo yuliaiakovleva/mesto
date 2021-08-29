@@ -15,33 +15,27 @@ const formContainer = document.querySelector('.popup__container');
 
 function openPopup (popup) {
   popup.classList.add('popup_is-opened');
+  document.addEventListener('keydown', closePopupWithEsc);
   };
 
 function closePopup(popup) {
   popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', closePopupWithEsc);
 }
 
 
-// Открытие модального окна профайла 
-
-function openPopupProfile() {
+editButton.addEventListener('click', () => {
   openPopup(popupProfile);
   popupProfileName.value = inputName.textContent;
   popupProfileInfo.value = inputInfo.textContent;
-}
-
-function closePopupProfile() {
-  closePopup(popupProfile);
-}
-
-editButton.addEventListener('click', openPopupProfile);
-closeButton.addEventListener('click', closePopupProfile);
+});
+closeButton.addEventListener('click', () => closePopup(popupProfile));
 
 function formSubmitHandler (evt) {
   evt.preventDefault(); 
   inputName.textContent = popupProfileName.value;
   inputInfo.textContent = popupProfileInfo.value;
-  closePopupProfile();
+  closePopup(popupProfile);
 }
 
 formContainer.addEventListener('submit', formSubmitHandler); 
@@ -125,26 +119,17 @@ function removeCard(e) {
 
 
 // добавляю заготовку карточки в разметку
-function initCard (card) {
+function renderCard (card) {
 const newCard = createCard (card.title, card.link);
 cardList.prepend(newCard);
 };
 
 // добавляю 6 карточек на страницу
-initialCards.forEach(card => initCard (card)); 
+initialCards.forEach(card => renderCard (card)); 
 
 
-// Открытие и закрытие попапа с добавлением карточки
-function openPopupCard() {
-  openPopup(popupCard);
-};
-
-function closePopupCard() {
-  closePopup(popupCard);
-};
-
-addButton.addEventListener('click', openPopupCard);
-closeCardButton.addEventListener('click', closePopupCard);
+addButton.addEventListener('click', () => openPopup(popupCard));
+closeCardButton.addEventListener('click', () => closePopup(popupCard));
 
 
 // Добавление карточки через попап 
@@ -156,9 +141,13 @@ function popupCardSubmitHandler (evt) {
     cardObject.title = inputCardName.value;
     cardObject.link = inputCardLink.value;
     
-    initCard(cardObject);
+    renderCard(cardObject);
 
-    closePopupCard();
+    // сбрасываю значения полей, чтобы прии повторном открытии они были пустые 
+    popupCardElement.reset();
+
+    // закрываю попап
+    closePopup(popupCard);
 };
 
 popupCardElement.addEventListener('submit', popupCardSubmitHandler); 
@@ -171,11 +160,8 @@ const popupImage = document.querySelector('#popup-image');
 const popupImageItem = popupImage.querySelector('.popup__image-item');
 const popupImageTitle = popupImage.querySelector('.popup__image-name');
 
-function closeImage () {
-  closePopup(popupImage);
-};
 
-closeImageButton.addEventListener('click', closeImage);
+closeImageButton.addEventListener('click', () => closePopup(popupImage));
 
 function openCard (title, link) {
   popupImageItem.src = link;
@@ -199,11 +185,9 @@ popupOverlay.forEach(item => {
 
 
 // Закрытие попапа(модального окна) нажатием на esc
-document.addEventListener('keydown', (evt) => {
+const closePopupWithEsc = (evt) => {
   if(evt.key === 'Escape') {
     const popupOpened = document.querySelector('.popup_is-opened');
     closePopup(popupOpened);
   };
-});
-
-
+};
