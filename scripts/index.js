@@ -146,6 +146,7 @@ function popupCardSubmitHandler (evt) {
     // сбрасываю значения полей, чтобы прии повторном открытии они были пустые 
     popupCardElement.reset();
 
+    resetForm(popupCard);
     // закрываю попап
     closePopup(popupCard);
 };
@@ -190,4 +191,18 @@ const closePopupWithEsc = (evt) => {
     const popupOpened = document.querySelector('.popup_is-opened');
     closePopup(popupOpened);
   };
+};
+
+
+function resetForm(form) {
+  const errorList = Array.from(form.querySelectorAll('.popup__input-error'));
+  errorList.forEach((errorElement) => {
+    errorElement.textContent = '';
+  });
+  const inputList = Array.from(form.querySelectorAll('.popup__input'));
+  inputList.forEach((inputElement) => {
+    inputElement.classList.remove('popup__input_type_error');
+  });
+  const submitButton = form.querySelector('.popup__button');
+  toggleButtonState(inputList, submitButton, 'popup__button_disabled');
 };
