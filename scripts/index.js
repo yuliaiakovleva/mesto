@@ -2,24 +2,25 @@
 const editButton = document.querySelector('.input__edit-btn');
 const popupProfile = document.querySelector('#popup-profile');
 const closeButton = document.querySelector('.popup__close-btn');
-const popupProfileName = document.querySelector('.popup__text_type_name');
-const popupProfileInfo = document.querySelector('.popup__text_type_info');
+const popupProfileName = document.querySelector('.popup__input_type_name');
+const popupProfileInfo = document.querySelector('.popup__input_type_info');
 const inputName = document.querySelector('.input__text_type_name');
 const inputInfo = document.querySelector('.input__text_type_info');
 // const form = document.querySelector('.profile');
 
-const formElement = document.querySelector('.popup__container');
+const formContainer = document.querySelector('.popup__container');
 
 
 // Открытие и закрытие модального окна 
 
 function openPopup (popup) {
   popup.classList.add('popup_is-opened');
-};
+  };
 
 function closePopup(popup) {
   popup.classList.remove('popup_is-opened');
 }
+
 
 // Открытие модального окна профайла 
 
@@ -43,7 +44,7 @@ function formSubmitHandler (evt) {
   closePopupProfile();
 }
 
-formElement.addEventListener('submit', formSubmitHandler); 
+formContainer.addEventListener('submit', formSubmitHandler); 
 
 // Карточки //
 
@@ -55,8 +56,8 @@ const addButton = document.querySelector('.profile__submit-btn');
 const closeCardButton = document.querySelector('#popup-card__close-btn');
 
 const popupCardElement = document.querySelector('#popup-card__container');
-const inputCardName = document.querySelector('#popup-card__text_type_name');
-const inputCardLink = document.querySelector('#popup-card__text_type_link');
+const inputCardName = document.querySelector('#name-mesto-input');
+const inputCardLink = document.querySelector('#url-input');
 
 
 // 
@@ -183,5 +184,26 @@ function openCard (title, link) {
 
   openPopup(popupImage);
 };
+
+
+// Закрытие попапа кликом на оверлей 
+const popupOverlay = document.querySelectorAll('.popup');
+
+popupOverlay.forEach(item => {
+  item.addEventListener('click', function (evt) { 
+    if(evt.target.classList.contains('popup')) {
+      closePopup(item);
+    }
+  });
+  });
+
+
+// Закрытие попапа(модального окна) нажатием на esc
+document.addEventListener('keydown', (evt) => {
+  if(evt.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_is-opened');
+    closePopup(popupOpened);
+  };
+});
 
 
