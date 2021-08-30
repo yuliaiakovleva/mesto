@@ -13,6 +13,7 @@
     transition: opacity 0.5s ease;
     cursor: pointer;
     margin-left: inherit;
+    outline: none;
 }
 
 .profile__submit-btn:hover {

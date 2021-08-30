@@ -10,6 +10,7 @@
     transition: opacity 0.5s ease;
     cursor: pointer;
     align-self: center;
+    outline: none;
 }
 
 .input__edit-btn:hover {
