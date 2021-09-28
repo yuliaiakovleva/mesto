@@ -42,7 +42,7 @@
                 <label class="popup__row">
                     <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Имя"
                         minlength='2' maxlength='40' required id="name-input">
-                    <span class="name-input-error popup__input-error"></span>
+                    <span class="name-input-error popup__input-error" id="name-error-input"></span>
                 </label>
                 <label class="popup__row">
                     <input class="popup__input popup__input_type_info" type="text" name="info" placeholder="О себе"
@@ -75,6 +75,8 @@
         </form>
 
     </section>
+
+    <!-- попап с картинкой на всю страницу -->
     <section class="popup" id="popup-image">
         <div class="popup__image-container">
             <button class="popup__close-btn popup__close-btn_image" type="submit"></button>
@@ -95,8 +97,10 @@
         </li>
     </template>
 
-    <script src="./scripts/index.js"></script>
-    <script src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/index.js"></script>
+    <script type="module" src="./scripts/card.js"></script>
+    <script type="module" src="./scripts/validate.js"></script>
+    <script type="module" src="./scripts/constants.js"></script>
 </body>
 
 </html>
