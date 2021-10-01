@@ -1,5 +1,7 @@
-import { Card } from './card.js';
-import { editButton, popupProfile, closeButton, popupProfileName, popupProfileInfo, inputName, inputInfo, inputCardName, inputCardLink, formContainer, popupCard, addButton, closeCardButton, popupProfileForm, popupAddCardForm, initialCards, cardList } from './constants.js';
+import { Card } from './Сard.js';
+import { closeImageButton, popupImage, editButton, popupProfile, closeProfileButton, popupProfileName, popupProfileInfo, inputName, inputInfo, inputCardName, inputCardLink, formContainer, popupCard, addButton, closeCardButton, popupProfileForm, popupAddCardForm, initialCards, cardList } from './constants.js';
+import { FormValidator } from './FormValidator.js';
+import { validationData } from './constants.js';
 
 // !Открытие и закрытие модального окна 
 export function openPopup(popup) {
@@ -20,48 +22,77 @@ const closePopupWithEsc = (evt) => {
   };
 };
 
+// Закрытие карточек 
+closeImageButton.addEventListener('click', () => {
+        closePopup(popupImage);
+      });
+
 
 // !Создание карточек 
 
-// рендерю карточку (функция создания карточки)
-function renderCard(item) {
+// создаю карточки
+function createCard(item) {
   const card = new Card (item, '#card-template');
   const cardElement = card.generateCard();
-  cardList.append(cardElement);
-}
+  return cardElement;
+} 
+
+
+// добавляю заготовку карточки в разметку 
+function renderCard(item) { 
+  const newCard = createCard(item);   
+  cardList.prepend(newCard); 
+  }; 
+
 
 // добавляю 6 карточек на страницу
 initialCards.forEach(item => renderCard(item)); 
 
 
+// ! Все о валидации
 
-// !Изменение информации профиля
+const popupProfileValidate = new FormValidator(validationData, popupProfileForm);
+popupProfileValidate.enableValidation();
 
+const popupAddCardValidate = new FormValidator(validationData, popupAddCardForm);
+popupAddCardValidate.enableValidation();
+
+
+
+//! Открываем попап с информацией профиля 
 editButton.addEventListener('click', () => {
   openPopup(popupProfile);
   popupProfileName.value = inputName.textContent;
   popupProfileInfo.value = inputInfo.textContent;
 });
-closeButton.addEventListener('click', () => closePopup(popupProfile));
 
-function formSubmitHandler(evt) {
+closeProfileButton.addEventListener('click', () => closePopup(popupProfile));
+
+// Изменение информации профиля
+function handleFormSubmit(evt) {
   evt.preventDefault();
   inputName.textContent = popupProfileName.value;
   inputInfo.textContent = popupProfileInfo.value;
   closePopup(popupProfile);
 }
 
+
 // сохранение изменений информации профиля 
-formContainer.addEventListener('submit', formSubmitHandler);
+formContainer.addEventListener('submit', handleFormSubmit);
 
 
 // открываю и закрываю попап с добавлением карточки
-addButton.addEventListener('click', () => openPopup(popupCard));
+addButton.addEventListener('click', () =>  {
+    openPopup(popupCard);
+    popupAddCardValidate.resetForm();
+});
+
+
 closeCardButton.addEventListener('click', () => closePopup(popupCard));
 
 
 // Добавляю карточки через попап 
-function popupCardSubmitHandler(evt) {
+function handleAddCard(evt) {
   evt.preventDefault();
 
   const cardObject = {};
@@ -71,16 +102,16 @@ function popupCardSubmitHandler(evt) {
   renderCard(cardObject);
 
   // сбрасываю значения полей, чтобы прии повторном открытии они были пустые 
-  popupAddCardForm.reset();
+  // popupAddCardForm.reset()
 
-  // сбрасываю значение кнопки 
-  resetButton(popupCard);
+  // // cбрасываю значение кнопки 
+  // popupAddCardValidate.toggleButtonState()
 
   // закрываю попап
   closePopup(popupCard);
 };
 
-popupAddCardForm.addEventListener('submit', popupCardSubmitHandler);
+popupAddCardForm.addEventListener('submit', handleAddCard);
 
 // Закрытие попапа кликом на оверлей 
 const popupOverlay = document.querySelectorAll('.popup');
@@ -92,29 +123,4 @@ popupOverlay.forEach(item => {
     }
   });
 });
-
-
-// обнуляю кнопку сабмита 
-function resetButton(form) {
-  const inputList = Array.from(form.querySelectorAll('.popup__input'));
-  const submitButton = form.querySelector('.popup__button');
-  submitButton.classList.add('popup__button_disabled');
-  submitButton.setAttribute('disabled', true);
-};
-
-// Все о валидации
-
-
-import { FormValidator } from './validate.js';
-import { validationData } from './constants.js';
-
-const popupProfileValidate = new FormValidator(validationData, popupProfileForm);
-popupProfileValidate.enableValidation();
-
-
-const popupAddCardValidate = new FormValidator(validationData, popupAddCardForm);
-popupAddCardValidate.enableValidation();
-
-
-
 

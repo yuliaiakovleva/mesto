@@ -38,7 +38,7 @@ export const popupImageTitle = popupImage.querySelector('.popup__image-name');
 // про основное 
 export const editButton = document.querySelector('.input__edit-btn');
 export const popupProfile = document.querySelector('#popup-profile');
-export const closeButton = document.querySelector('.popup__close-btn');
+export const closeProfileButton = document.querySelector('.popup__close-btn');
 export const popupProfileName = document.querySelector('.popup__input_type_name');
 export const popupProfileInfo = document.querySelector('.popup__input_type_info');
 export const inputName = document.querySelector('.input__text_type_name');
