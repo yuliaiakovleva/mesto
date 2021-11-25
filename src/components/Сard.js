@@ -1,5 +1,5 @@
 
-import { handleCardClick } from "../index.js";
+import { handleCardClick } from "../pages/index.js";
 
 export class Card {
     constructor(data, handleCardClick, cardSelector) {

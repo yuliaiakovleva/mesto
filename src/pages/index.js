@@ -1,14 +1,14 @@
 
-import './style/index.css';
+import './index.css';
 
-import { Card } from './components/Сard.js';
-import { initialCards, editButton, addButton, popupProfileName, popupProfileInfo, popupProfileForm, popupAddCardForm, cardListSection, validationData} from './utils/constants.js';
-import { FormValidator } from './components/FormValidator.js';
-import { Section } from './components/Section.js';
-import { Popup } from './components/Popup.js';
-import { PopupWithImage } from './components/PopupWithImage.js';
-import { PopupWithForm } from './components/PopupWithForm.js';
-import { UserInfo } from './components/UserInfo.js'
+import { Card } from '../components/Сard.js';
+import { initialCards, editButton, addButton, popupProfileName, popupProfileInfo, popupProfileForm, popupAddCardForm, cardListSection, validationData} from '../utils/constants.js';
+import { FormValidator } from '../components/FormValidator.js';
+import { Section } from '../components/Section.js';
+import { Popup } from '../components/Popup.js';
+import { PopupWithImage } from '../components/PopupWithImage.js';
+import { PopupWithForm } from '../components/PopupWithForm.js';
+import { UserInfo } from '../components/UserInfo.js'
 
 
 // функция создания карточки и добавления карточки на страницу 
