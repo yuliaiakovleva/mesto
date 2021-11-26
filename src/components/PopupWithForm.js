@@ -4,8 +4,8 @@ export class PopupWithForm extends Popup{
     constructor(popupSelector, submitFormHandler) {
         super(popupSelector);
         this._submitForm = submitFormHandler;
-        this._form = this._selector.querySelector('.popup__container');
-        this._inputList = this._selector.querySelectorAll('.popup__input');
+        this._form = this._popup.querySelector('.popup__container');
+        this._inputList = this._popup.querySelectorAll('.popup__input');
     }
 
    // метод собирает данные всех полей формы 

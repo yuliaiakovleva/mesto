@@ -11,18 +11,22 @@ import { PopupWithForm } from '../components/PopupWithForm.js';
 import { UserInfo } from '../components/UserInfo.js'
 
 
-// функция создания карточки и добавления карточки на страницу 
-function addCard(item) {
+
+function createCard(item) {
   const card = new Card(item, handleCardClick, '#card-template');
   const cardElement = card.generateCard();
-  cardList.addItem(cardElement);
+  return cardElement;
 }
 
+function addCard(item) {
+  const cardElement = createCard(item)
+  cardList.addItem(cardElement);
+}
 
 // отрисовка карточки на странице 
 const cardList = new Section({
   items: initialCards,
-  renderer: (item) => addCard(item)
+  renderer: addCard
 }, cardListSection) 
 
 cardList.renderItems();
@@ -33,7 +37,6 @@ const imagePopup = new PopupWithImage('#popup-image');
 
 export function handleCardClick(link, title) {
   imagePopup.open(link, title);
-  imagePopup.setEventListeners()
 }
 
 
@@ -55,8 +58,8 @@ function submitFormHandler(data) {
   popupAddCardValidate.resetForm();
 }
 
-addCardPopup.setEventListeners();
 addButton.addEventListener('click', () =>  {
+  popupAddCardValidate.resetForm();
   addCardPopup.open();
 });
 
@@ -64,6 +67,7 @@ addButton.addEventListener('click', () =>  {
 
 // Работаю с пользователем 
 const user = new UserInfo({
+  // я плохо назвала эти элементы, вообще это строки 
   nameSelector: '.input__text_type_name',
   infoSelector: '.input__text_type_info'
 })
@@ -71,19 +75,24 @@ const user = new UserInfo({
 // Форма обновления информации профиля
 const editProfilePopup = new PopupWithForm ('#popup-profile', submitProfileForm);
 
-function submitProfileForm() {
-  user.setUserInfo()
+function submitProfileForm(data) {
+  user.setUserInfo(data)
   editProfilePopup.close();
 }
 
 function openProfilePopup() {
   editProfilePopup.open();
-  popupProfileName.value = user.getUserInfo().name;
-  popupProfileInfo.value = user.getUserInfo().info;
+  // не стоит 2 раза вызвать getUserInfo(), лучше сделать так
+  const {name, info } = user.getUserInfo()
+  popupProfileName.value = name;
+  popupProfileInfo.value = info;
   popupProfileValidate.resetForm()
 }
 
 editProfilePopup.setEventListeners();
+imagePopup.setEventListeners();
+addCardPopup.setEventListeners();
+
 editButton.addEventListener('click', openProfilePopup);
 
 

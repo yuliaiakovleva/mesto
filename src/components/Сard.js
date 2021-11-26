@@ -1,6 +1,4 @@
 
-import { handleCardClick } from "../pages/index.js";
-
 export class Card {
     constructor(data, handleCardClick, cardSelector) {
       this._title = data.title,
@@ -21,6 +19,7 @@ export class Card {
   
       this._element.querySelector('.card__illustration').src = this._link;
       this._element.querySelector('.card__title').textContent = this._title;
+      this._element.querySelector('.card__illustration').alt = this._title;
   
       return this._element;
     }
