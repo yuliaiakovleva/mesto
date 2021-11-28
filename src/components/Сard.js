@@ -1,11 +1,16 @@
 
 export class Card {
-    constructor(data, handleCardClick, cardSelector) {
-      this._title = data.title,
+    constructor({data, handleCardClick, handleLikeClick}, cardSelector) {
+      console.log(data);
+      this._likes = data.likes,
+      this._name = data.name,
       this._link = data.link,
-      this.handleCardClick = handleCardClick,
-
+      this.id = data._id,
+      this._userId = data.currentUserId,
+      this._handleCardClick = handleCardClick,
+      this._handleLikeClick = handleLikeClick,
       this._cardSelector = cardSelector
+
     };
   
     _getTemplate() {
@@ -18,8 +23,8 @@ export class Card {
       this._setEventListeners();
   
       this._element.querySelector('.card__illustration').src = this._link;
-      this._element.querySelector('.card__title').textContent = this._title;
-      this._element.querySelector('.card__illustration').alt = this._title;
+      this._element.querySelector('.card__title').textContent = this._name;
+      this._element.querySelector('.card__illustration').alt = this._name;
   
       return this._element;
     }
@@ -29,21 +34,39 @@ export class Card {
         this._removeCard();
       });
       this._element.querySelector('.card__button').addEventListener('click', () => {
-        this._likeCard();
+        this._handleLikeClick(this);
       });
 
       this._element.querySelector('.card__button-image').addEventListener('click', () => {
-        this.handleCardClick(this._link, this._title);
+        this._handleCardClick(this._link, this._name);
       });
   
     }
   
-    _removeCard() {
+    removeCard() {
       this._element.remove();
     }
-  
-    _likeCard() {
-      this._element.querySelector('.card__button').classList.toggle('card__button_active');
+
+    isLiked () {
+      return this._likes.some(user => user._id === this._userId);
     }
+
+    setLike (data) {
+      this._likes = data; 
+      this._updateLikeInfo();
+    }
+
+    _updateLikeInfo() {
+      if (!this.isLiked()){
+        this._element.querySelector('.card__button').classList.remove('card__button_active');
+      } else {
+        this._element.querySelector('.card__button').classList.add('card__button_active');
+      }
+      
+    }
+  
+    // _likeCard() {
+    //   this._element.querySelector('.card__button').classList.toggle('card__button_active');
+    // }
   };
   

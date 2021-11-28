@@ -16,9 +16,9 @@
         <section class="profile">
             <div class="profile__image"></div>
             <div class="input">
-                <h1 class="input__text input__text_type_name">Жак-Ив&nbsp;Кусто</h1>
+                <h1 class="input__text input__text_type_name"></h1>
                 <button type="button" class="input__edit-btn"></button>
-                <p class="input__text input__text_type_info">Исследователь океана</p>
+                <p class="input__text input__text_type_info"></p>
             </div>
             <button type="button" class="profile__submit-btn"></button>
         </section>
@@ -44,7 +44,7 @@
                     <span class="name-input-error popup__input-error" id="name-error-input"></span>
                 </label>
                 <label class="popup__row">
-                    <input class="popup__input popup__input_type_info" type="text" name="info" placeholder="О себе"
+                    <input class="popup__input popup__input_type_info" type="text" name="about" placeholder="О себе"
                         minlength='2' maxlength='200' required id="info-input">
                     <span class="info-input-error popup__input-error"></span>
                 </label>
@@ -60,7 +60,7 @@
             <h2 class="popup__title">Новое место</h2>
             <fieldset class="popup__fieldset">
                 <label class="popup__row">
-                    <input class="popup__input popup__input_type_name" type="text" name="title" placeholder="Название"
+                    <input class="popup__input popup__input_type_name" type="text" name="name" placeholder="Название"
                         required minlength='2' maxlength='30' id="name-mesto-input">
                     <span class="name-mesto-input-error popup__input-error"></span>
                 </label>
@@ -91,7 +91,10 @@
             <button class="card__button-delete" type="submit"></button>
             <div class="card__container">
                 <p class="card__title"></p>
-                <button type="button" class="card__button"></button>
+                <div class="card__likescontainer">
+                    <button type="button" class="card__button"></button>
+                    <p class="card__likes">10</p>
+                </div>
             </div>
         </li>
     </template>
