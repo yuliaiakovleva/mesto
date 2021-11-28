@@ -713,14 +713,20 @@
     outline: none;
 }
 .card__likes {
-    min-width: 24px;
     color: black;
-    border: 2px red solid;
-    min-height: 20px
+    /* border: 2px red solid; */
+    width: 10px;
+    height: 13px;
+    margin: auto;
+    font-family: 'Inter', 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px; 
+    
 }
 
 .card__likescontainer {
-    border: 2px green solid
+    /* border: 2px green solid */
 }
 .footer {
     max-width: 880px;
