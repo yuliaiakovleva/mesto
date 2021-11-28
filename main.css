@@ -712,6 +712,12 @@
     cursor: pointer;
     outline: none;
 }
+.card__likes {
+    min-width: 24px;
+    color: black;
+    border: 2px red solid;
+    min-height: 20px
+}
 
 .footer {
     max-width: 880px;
