@@ -719,6 +719,9 @@
     min-height: 20px
 }
 
+.card__likescontainer {
+    border: 2px green solid
+}
 .footer {
     max-width: 880px;
     margin: 67px auto 60px;
