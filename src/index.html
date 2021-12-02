@@ -84,16 +84,24 @@
         </div>
     </section>
 
+    <!-- попап с вопросом "вы уверены?" -->
+    <section class="popup" id="popup-question">
+        <form class="popup__container popup__question-container" name="popup" id="popup-profile-container" novalidate>
+            <button class="popup__close-btn" type="reset"></button>
+            <h2 class="popup__title popup__question-title">Вы уверены?</h2>
+            <button class="popup__button popup__question-button" type="submit">Да</button>
+        </form>
+    </section>
 
     <template id="card-template">
         <li class="card">
             <button class="card__button-image" type="button"><img class="card__illustration" src="#" alt=""></button>
-            <button class="card__button-delete" type="submit"></button>
+            <button class="card__button-delete" type="button"></button>
             <div class="card__container">
                 <p class="card__title"></p>
                 <div class="card__likescontainer">
                     <button type="button" class="card__button"></button>
-                    <p class="card__likes">10</p>
+                    <p class="card__likes"></p>
                 </div>
             </div>
         </li>

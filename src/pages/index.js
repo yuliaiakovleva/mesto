@@ -2,14 +2,19 @@
 import './index.css';
 
 import { Card } from '../components/Сard.js';
-import { initialCards, editButton, addButton, popupProfileName, popupProfileInfo, popupProfileForm, popupAddCardForm, cardListSection, validationData} from '../utils/constants.js';
+import { deleteButton, editButton, addButton, popupProfileName, popupProfileInfo, popupProfileForm, popupAddCardForm, cardListSection, validationData} from '../utils/constants.js';
 import { FormValidator } from '../components/FormValidator.js';
 import { Section } from '../components/Section.js';
 import { Popup } from '../components/Popup.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
-import { UserInfo } from '../components/UserInfo.js'
-import { Api } from '../components/Api.js'
+import { UserInfo } from '../components/UserInfo.js';
+import { Api } from '../components/Api.js';
+import { PopupWithSubmit } from '../components/PopupWithSubmit.js';
+
+function handleError(err) {
+  console.error(err);
+}
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-30',
@@ -30,7 +35,11 @@ const api = new Api({
 
 let userId = null
 
+
+// В Promise.all передаем массив промисов с карточками и с инфой профиля. делаем это в promise all, т к 
+// инфа профиля завязана на карточки, и нельзя, чтобы одна пришло с сервера раньше другого
 Promise.all([api.getInitialCards(), api.getUserInfo()])
+// в then приходят массивы, т е dataCards - это массив карточек, dataUser - массив инфы о профиле
 .then(([dataCards, dataUser]) => {
   userId = dataUser._id;
   // отображаю информацию профиля 
@@ -38,11 +47,11 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
   // рендерю карточки (вместо initialCards передаю объект dataCards)
   cardList.renderItems(dataCards);
   //
-
-  // console.log('Данные карточек', dataCards);
-  // console.log('Данные пользователя', dataUser);
+  console.log('Данные карточек', dataCards);
+  console.log('Данные пользователя', dataUser);
 })
 .catch(err => console.log(err))
+// .catch(handleError);
 
 
 
@@ -52,19 +61,31 @@ const createCard = (data) => {
     handleCardClick,
     handleLikeClick: (card) => {
       if (card.isLiked()) {
-        api.removeCardLike(card.id)
-        .then(cardData => card.setLike(cardData.likes))
-      } else {
-      api.setCardLike(card.id)
-        .then(cardData => card.setLike(cardData.likes))
-      }
-    },
-    // handleCardRemove: () => {}
-  }, '#card-template'
-  );
-  const cardElement = card.generateCard();
-  return cardElement;
-}
+            api.removeCardLike(card.id)
+              .then(cardData => card.setLike(cardData.likes))
+          } else {
+          api.setCardLike(card.id)
+              .then(cardData => card.setLike(cardData.likes))
+          }
+        },
+      // handleDeleteCard
+    }, '#card-template');
+    const cardElement = card.generateCard();
+    return cardElement;
+  }
+
+
+// function handleDeleteCard(card) {
+
+// }
+
+// const deletePopup = new PopupWithSubmit('#popup-question');
+// deletePopup.setEventListeners();
+
+//   document.querySelector('.card__button-delete').addEventListener('click', () =>  {
+//      console.log('что происходит')
+// });
+
 
 
 function addCard(item) {
@@ -79,10 +100,10 @@ const cardList = new Section({
   }
 }, cardListSection) 
 
-// cardList.renderItems(initialCards);
+
 
 // Открываю попап с картинкой 
-const imagePopup = new PopupWithImage('#popup-image');
+const imagePopup = new PopupWithImage('#popup-image', );
 
 function handleCardClick(link, name) {
   imagePopup.open(link, name);
@@ -105,6 +126,7 @@ function submitFormHandler(data) {
   api.addNewCard(data)
   .then((responce) => {
     addCard(responce)
+  .catch(handleError)
   });
   addCardPopup.close();
   popupAddCardValidate.resetForm();
