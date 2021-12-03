@@ -607,25 +607,19 @@
     cursor: pointer;
     outline: none;
     background-color: Transparent;
-    background-image: url(93c771f5f8582261951d.png);
+    opacity: 0.2;
+   
 }
 
 .profile__image-button:hover {
-    opacity: 0.2;
-}
-.profile__pencil {
-    border: red 2px solid;
-    position: absolute;
-    left: 122px;
-    top: 206px;
-    width: 26px;
-    height: 26px;
-    opacity: 0;
+    opacity: 1;
+    background-image: url(93c771f5f8582261951d.png);
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 
-.profile__pencil:hover {
-    opacity: 1;
-}
+
 .section {
     max-width: 880px;
     margin: 0 auto;
