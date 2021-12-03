@@ -607,6 +607,7 @@
     cursor: pointer;
     outline: none;
     background-color: Transparent;
+    background-image: url(93c771f5f8582261951d.png);
 }
 
 .profile__image-button:hover {
