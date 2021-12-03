@@ -149,7 +149,8 @@ const user = new UserInfo({
   // я плохо назвала эти элементы, вообще это строки 
   nameSelector: '.input__text_type_name',
   infoSelector: '.input__text_type_info',
-  avatarSelector: '.popup__avatar-link',
+  
+  avatarSelector: '.profile__image',
 })
 
 // Форма обновления информации профиля

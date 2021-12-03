@@ -7,8 +7,15 @@
     cursor: pointer;
     outline: none;
     background-color: Transparent;
+    opacity: 0.2;
+   
 }
 
 .profile__image-button:hover {
-    opacity: 0.2;
+    opacity: 1;
+    background-image: url('../../../images/pencil.png');
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
+
