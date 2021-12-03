@@ -65,4 +65,22 @@ export class Api {
           })
         .then(onResponse)
     }
+    
+    deleteCard(cardId){
+        return fetch(`${this._url}/cards/${cardId}`, {
+            method: 'DELETE',
+            headers: this._headers,
+          })
+        .then(onResponse)
+    }
+
+    changeAvatar({link}){
+        return fetch(`${this._url}/users/me/avatar`, {
+            method: 'PATCH',
+            headers: this._headers,
+            body: JSON.stringify({avatar: link})
+          })
+        .then(onResponse)
+    }
+
 }

@@ -1,0 +1,14 @@
+.profile__image-button {
+    width: 120px;
+    height: 120px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: Transparent;
+}
+
+.profile__image-button:hover {
+    opacity: 0.2;
+}

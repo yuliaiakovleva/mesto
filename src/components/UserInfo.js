@@ -1,7 +1,8 @@
 export class UserInfo {
-    constructor ({nameSelector, infoSelector}){
+    constructor ({nameSelector, infoSelector, avatarSelector}){
         this._name = document.querySelector(nameSelector);
         this._about = document.querySelector(infoSelector);
+        this._avatar = document.querySelector(avatarSelector);
     }
     // Метод возвращает объект с данными о пользователе
     getUserInfo() {
@@ -15,6 +16,10 @@ export class UserInfo {
     setUserInfo ({name, about}) {
         this._name.textContent = name;
         this._about.textContent = about;
+    };
+
+    setAvatar({avatar}) {
+        this._avatar.style.backgroundImage = `url('${avatar}')`;
     }
 }
 

@@ -6,6 +6,8 @@ export class PopupWithForm extends Popup{
         this._submitForm = submitFormHandler;
         this._form = this._popup.querySelector('.popup__container');
         this._inputList = this._popup.querySelectorAll('.popup__input');
+        this._button = this._popup.querySelector('.popup__button');
+        this._defaultButton = this._button.textContent
     }
 
    // метод собирает данные всех полей формы 
@@ -30,5 +32,17 @@ export class PopupWithForm extends Popup{
     close() {
         super.close()
         this._form.reset();
+    }
+
+    loading(isLoading) {
+        if(isLoading) {
+            this._setLoading("Сохранение...");
+        } else {
+            this._setLoading(this._defaultButton);
+        }
+    }
+
+    _setLoading(value) {
+        this._button.textContent = value;
     }
 }

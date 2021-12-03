@@ -34,16 +34,17 @@ export const cardListSection = '.places';
 // Кнопки
 export const editButton = document.querySelector('.input__edit-btn');
 export const addButton = document.querySelector('.profile__submit-btn');
-export const deleteButton = document.querySelector('.card__button-delete');
+export const editAvatarButton = document.querySelector('.profile__image-button');
 
 
 // Инпуты в форме профиля
 export const popupProfileName = document.querySelector('.popup__input_type_name');
 export const popupProfileInfo = document.querySelector('.popup__input_type_info');
 
-// 2 элемента формы 
+// 3 элемента формы 
 export const popupProfileForm = document.querySelector('#popup-profile-container');
 export const popupAddCardForm = document.querySelector('#popup-card__container');
+export const popupAvatarForm = document.querySelector('#popup-avatar-container');
 
 // валидация 
 export const validationData = {

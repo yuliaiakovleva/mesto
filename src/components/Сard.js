@@ -41,8 +41,8 @@ export class Card {
   
     _setEventListeners() {
       this._element.querySelector('.card__button-delete').addEventListener('click', () => {
-        // this._removeCard();
         this._handleDeleteCard(this);
+        // console.log('help');
       });
       this._element.querySelector('.card__button').addEventListener('click', () => {
         this._handleLikeClick(this);
@@ -54,7 +54,7 @@ export class Card {
       });
   
     }
-  
+    
     removeCard() {
       this._element.remove();
     }
@@ -67,6 +67,7 @@ export class Card {
     // ставим лайк
     setLike (data) {
       this._likes = data; 
+      this._likesNumders = this._likes.length;
       this._element.querySelector('.card__likes').textContent = this._likesNumders;
       this._updateLikeInfo();
 
@@ -75,17 +76,10 @@ export class Card {
     _updateLikeInfo() {
       if (!this.isLiked()){
         this._element.querySelector('.card__button').classList.remove('card__button_active');
-        // this._countCardLikes();
       } else {
         this._element.querySelector('.card__button').classList.add('card__button_active');
-        // this._countCardLikes();
       }
     }
-
-  
-    // Скорее всего, придется написать новый метод в классе карточки. 
-    // Этот метод будет брать ответ с сервера, искать в нем массив лайков, 
-    // брать его длину и вставлять в счетчик
 
     _canDelete() {
       if (this._myUserId != this._owner) {

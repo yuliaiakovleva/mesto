@@ -13,6 +13,8 @@
 @import url(../blocks/input/__text/_type/input__text_type_info.css);
 @import url(../blocks/input/__edit-btn/input__edit-btn.css);
 @import url(../blocks/profile/__submit-btn/profile__submit-btn.css);
+@import url(../blocks/profile/__image-button/profile__image-button.css);
+@import url(../blocks/profile/__pencil/profile__pencil.css);
 /*  */
 @import url(../blocks/section/section.css);
 @import url(../blocks/places/places.css);
@@ -49,6 +51,8 @@
 /* popup-question */
 @import url(../blocks/popup/__question-container/popup__question-container.css);
 @import url(../blocks/popup/__question-title/popup__question-title.css);
+/* popup-avatar */
+@import url(../blocks/popup/__avatar-container/popup__avatar-container.css);
 /* валидация */
 @import url(../blocks/popup/__input/_type_error/popup__input_type_error.css);
 @import url(../blocks/popup/__input-error/popup__input-error.css);

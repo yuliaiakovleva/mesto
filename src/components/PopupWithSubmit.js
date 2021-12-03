@@ -7,6 +7,7 @@ export class PopupWithSubmit extends Popup{
     }
 
     // колбек передается не в конструктор, а в метод. Т К у каждой карточки своя функция удаления, и мы будем просто подменять каждый раз функцию
+    
     //getinputvalues не надо
 
     setDeleteClickFormSubmit (action) {
@@ -18,6 +19,7 @@ export class PopupWithSubmit extends Popup{
        this._form.addEventListener('submit', (evt) => {
             evt.preventDefault();
             this._submitFormHandler();
+            // закрытие попапа или тут, или в index.js
         });
     }
 };

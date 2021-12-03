@@ -14,7 +14,10 @@
     </header>
     <main class="content">
         <section class="profile">
-            <div class="profile__image"></div>
+            <div class="profile__image">
+                <img src="images/pencil.png" class="profile__pencil" alt="Изменение аватара">
+                <button type="button" class="profile__image-button"></button>
+            </div>
             <div class="input">
                 <h1 class="input__text input__text_type_name"></h1>
                 <button type="button" class="input__edit-btn"></button>
@@ -86,17 +89,34 @@
 
     <!-- попап с вопросом "вы уверены?" -->
     <section class="popup" id="popup-question">
-        <form class="popup__container popup__question-container" name="popup" id="popup-profile-container" novalidate>
+        <form class="popup__container popup__question-container" name="popup"novalidate>
             <button class="popup__close-btn" type="reset"></button>
             <h2 class="popup__title popup__question-title">Вы уверены?</h2>
             <button class="popup__button popup__question-button" type="submit">Да</button>
         </form>
     </section>
 
+
+    <!-- попап с обновлением аватара -->
+    <section class="popup" id="popup-avatar">
+        <form class="popup__container popup__avatar-container" name="popup" id="popup-avatar-container" novalidate>
+            <button class="popup__close-btn" type="reset"></button>
+            <h2 class="popup__title">Обновить аватар</h2>
+            <fieldset class="popup__fieldset">
+                <label class="popup__row">
+                    <input class="popup__input popup__avatar-link" id="#help" type="url" name="link"
+                        placeholder="Ссылка на картинку" required>
+                    <span class="url-input-error popup__input-error"></span>
+                </label>
+            </fieldset>
+            <button class="popup__button" type="submit">Сохранить</button>
+        </form>
+    </section>
+
     <template id="card-template">
         <li class="card">
             <button class="card__button-image" type="button"><img class="card__illustration" src="#" alt=""></button>
-            <button class="card__button-delete" type="button"></button>
+            <button class="card__button-delete" id='yulia' type="button"></button>
             <div class="card__container">
                 <p class="card__title"></p>
                 <div class="card__likescontainer">
@@ -108,7 +128,7 @@
     </template>
 
     <!-- <script type="module" src="./scripts/pages/index.js"></script> -->
-    
+
 </body>
 
 </html>
