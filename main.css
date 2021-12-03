@@ -612,13 +612,18 @@
 .profile__image-button:hover {
     opacity: 0.2;
 }
-.profile__pencile {
+.profile__pencil {
     border: red 2px solid;
     position: absolute;
     left: 122px;
     top: 206px;
     width: 26px;
     height: 26px;
+    opacity: 0;
+}
+
+.profile__pencil:hover {
+    opacity: 1;
 }
 .section {
     max-width: 880px;
