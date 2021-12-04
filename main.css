@@ -606,9 +606,8 @@
     border: none;
     cursor: pointer;
     outline: none;
-    background-color: Transparent;
+    background-color: transparent;
     opacity: 0.2;
-   
 }
 
 .profile__image-button:hover {
