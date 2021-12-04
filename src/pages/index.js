@@ -12,9 +12,9 @@ import { UserInfo } from '../components/UserInfo.js';
 import { Api } from '../components/Api.js';
 import { PopupWithSubmit } from '../components/PopupWithSubmit.js';
 
-function handleError(err) {
-  console.error(err);
-}
+// function handleError(err) {
+//   console.error(err);
+// }
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-30',
@@ -24,14 +24,6 @@ const api = new Api({
   }
 });
 
-
-// api.getInitialCards()
-// .then(data => console.log(data))
-// .catch(err => console.log(err))
-
-// api.getUserInfo()
-// .then(dataUser => console.log(dataUser))
-// .catch(err => console.log(err))
 
 let userId = null
 
@@ -43,17 +35,18 @@ Promise.all([api.getInitialCards(), api.getUserInfo()])
   .then(([dataCards, dataUser]) => {
     userId = dataUser._id;
     // отображаю информацию профиля 
-    user.setUserInfo(dataUser)
+    user.setUserInfo(dataUser);
+    //то же самое с аватаром 
+    user.setAvatar(dataUser);
     // рендерю карточки (вместо initialCards передаю объект dataCards)
     cardList.renderItems(dataCards);
     //
-    console.log('Данные карточек', dataCards);
+    // console.log('Данные карточек', dataCards);
     console.log('Данные пользователя', dataUser);
   })
-  .catch(err => console.log(err))
-// .catch(handleError);
-
-
+  .catch((err) => {
+    console.log('Ошибка.', err)
+  })
 
 const createCard = (data) => {
   const card = new Card({
@@ -63,9 +56,15 @@ const createCard = (data) => {
       if (card.isLiked()) {
         api.removeCardLike(card.id)
           .then(cardData => card.setLike(cardData.likes))
+          .catch((err) => {
+            console.log('Ошибка.', err)
+          })
       } else {
         api.setCardLike(card.id)
           .then(cardData => card.setLike(cardData.likes))
+          .catch((err) => {
+            console.log('Ошибка.', err)
+          })
       }
     },
     handleDeleteCard
@@ -86,6 +85,9 @@ function handleDeleteCard(card) {
       .then(() => {
         card.removeCard();
         popupDelete.close();
+      })
+      .catch((err) => {
+        console.log('Ошибка.', err)
       })
   })
 }
@@ -120,8 +122,8 @@ popupProfileValidate.enableValidation();
 const popupAddCardValidate = new FormValidator(validationData, popupAddCardForm);
 popupAddCardValidate.enableValidation();
 
-// const popupAvatarValidate = new FormValidator(validationData, popupAvatarForm);
-// popupAvatarValidate.enableValidation()
+const popupAvatarValidate = new FormValidator(validationData, popupAvatarForm);
+popupAvatarValidate.enableValidation();
 
 
 // Создаю попап с добавлением карточки
@@ -131,11 +133,13 @@ function submitFormHandler(data) {
   addCardPopup.loading(true);
   api.addNewCard(data)
     .then((dataCard) => {
-      addCard(dataCard)
+      addCard(dataCard);
+      addCardPopup.close();
+    })
+    .catch((err) => {
+      console.log('Ошибка.', err)
     })
     .finally(() => addCardPopup.loading(false));
-  addCardPopup.close();
-  popupAddCardValidate.resetForm();
 }
 
 addButton.addEventListener('click', () => {
@@ -149,7 +153,6 @@ const user = new UserInfo({
   // я плохо назвала эти элементы, вообще это строки 
   nameSelector: '.input__text_type_name',
   infoSelector: '.input__text_type_info',
-  
   avatarSelector: '.profile__image',
 })
 
@@ -162,11 +165,14 @@ function submitProfileForm(dataForm) {
   api.setUserInfo(dataForm)
     // получили данные с сервера, теперь их надо в DOM внести
     .then((data) => {
-      user.setUserInfo(data)
+      user.setUserInfo(data);
+      // закрыть попап
+      editProfilePopup.close();
+    })
+    .catch((err) => {
+      console.log('Ошибка.', err)
     })
     .finally(() => editProfilePopup.loading(false));
-  // закрыть попап
-  editProfilePopup.close();
 }
 
 
@@ -193,7 +199,6 @@ popupAvatar.setEventListeners();
 
 //
 
-
 function submitAvatarForm(link) {
   // запускаем прелоадер
   popupAvatar.loading(true);
@@ -203,16 +208,23 @@ function submitAvatarForm(link) {
     // ответ ок -> заменяем картинку на фронте
     .then((data) => {
       user.setAvatar(data);
+      popupAvatar.close();
+    })
+    .catch((err) => {
+      console.log('Ошибка.', err)
     })
     // выключаем прелоадер
     .finally(() => popupAvatar.loading(false));
   // закрываем попап 
-  popupAvatar.close();
 }
 
 editAvatarButton.addEventListener('click', () => {
   popupAvatar.open();
+  popupAvatarValidate.resetForm();
 });
+
+
+
 
 
 

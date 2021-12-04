@@ -4,6 +4,7 @@ export class UserInfo {
         this._about = document.querySelector(infoSelector);
         this._avatar = document.querySelector(avatarSelector);
     }
+
     // Метод возвращает объект с данными о пользователе
     getUserInfo() {
         return {
@@ -13,9 +14,10 @@ export class UserInfo {
     };    
     
     // Принимает новые данные и добавляет их на страницу 
-    setUserInfo ({name, about}) {
+    setUserInfo ({name, about, avatar}) {
         this._name.textContent = name;
         this._about.textContent = about;
+        this._avatar.style.backgroundImage = avatar;
     };
 
     setAvatar({avatar}) {

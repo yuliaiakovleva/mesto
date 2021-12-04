@@ -1,10 +1,10 @@
-function onResponse(res) {
-    if (res.ok) {
-        return res.json();
-    }
-      // если ошибка, отклоняем промиc
-     return Promise.reject(`Ошибка: ${res.status}`);                 
-}
+// function onResponse(res) {
+//     if (res.ok) {
+//         return res.json();
+//     }
+//       // если ошибка, отклоняем промиc
+//      return Promise.reject(`Ошибка: ${res.status}`);                 
+// }
 
 export class Api {
     constructor({url, headers}) {
@@ -12,18 +12,28 @@ export class Api {
         this._headers = headers;
     };
 
+    _checkResponse(res){
+        if (res.ok) {
+            return res.json();
+        }
+          // если ошибка, отклоняем промиc
+         return Promise.reject(`Ошибка: ${res.status}`); 
+    }
+
     getInitialCards() {
         return fetch(`${this._url}/cards`, {
             headers: this._headers,
         })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     };
 
     getUserInfo() {
         return fetch(`${this._url}/users/me`, {
             headers: this._headers,
         })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     };
 
     setUserInfo(inputValue) {
@@ -32,10 +42,12 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name: inputValue.name,
-                about: inputValue.about
+                about: inputValue.about,
+                avatar: inputValue.avatar
             })
           })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     };
 
     addNewCard(data) {
@@ -47,7 +59,8 @@ export class Api {
                 link: data.link
             })
           })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     }
 
     setCardLike(cardId){
@@ -55,7 +68,8 @@ export class Api {
             method: 'PUT',
             headers: this._headers,
           })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     }
 
     removeCardLike(cardId){
@@ -63,7 +77,8 @@ export class Api {
             method: 'DELETE',
             headers: this._headers,
           })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     }
     
     deleteCard(cardId){
@@ -71,7 +86,8 @@ export class Api {
             method: 'DELETE',
             headers: this._headers,
           })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     }
 
     changeAvatar({link}){
@@ -80,7 +96,8 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify({avatar: link})
           })
-        .then(onResponse)
+        .then(this._checkResponse)
+ 
     }
 
 }

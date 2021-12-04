@@ -45,6 +45,7 @@ export const popupProfileInfo = document.querySelector('.popup__input_type_info'
 export const popupProfileForm = document.querySelector('#popup-profile-container');
 export const popupAddCardForm = document.querySelector('#popup-card__container');
 export const popupAvatarForm = document.querySelector('#popup-avatar-container');
+// console.log( popupAvatarForm);
 
 // валидация 
 export const validationData = {

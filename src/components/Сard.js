@@ -85,8 +85,8 @@ export class Card {
       if (this._myUserId != this._owner) {
         this._element.querySelector('.card__button-delete').classList.add('card__button-delete_disabled');
       }
-      console.log(this._myUserId);
-      console.log('Чьи это данные' + this._owner);
+      // console.log(this._myUserId);
+      // console.log('Чьи это данные' + this._owner);
 
     }
   };
